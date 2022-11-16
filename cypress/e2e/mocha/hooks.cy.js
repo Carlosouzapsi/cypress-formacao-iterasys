@@ -8,7 +8,7 @@
 /*
 Limpeza de ambiente, sempre usar no before, e não nos afters
 */
-describe("DESCRIBE - testes do site iterasys", () => {
+describe.skip("DESCRIBE - testes do site iterasys", () => {
   before(() => {
     // executa 1x antes de tudo e todos.
     cy.log("DESCRIBE - BEFORE ALL ");
