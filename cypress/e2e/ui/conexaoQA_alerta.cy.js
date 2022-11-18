@@ -27,4 +27,5 @@ describe("alertas", { tags: "regressionTests" }, () => {
     // comando customizado não aceita options!
     cy.getElement("alert").should("not.exist");
   });
+
 });
