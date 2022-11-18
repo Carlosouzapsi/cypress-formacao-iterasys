@@ -1,8 +1,4 @@
-/* exemplo de burn: 
-npx cypress run --spec cypress\e2e\ui\conexaoQA_qas.cy.js --env grepTags=flaky (exemplo)
-npx cypress run --spec "cypress\e2e\ui\conexaoQA_qas.cy.js" --env grepTags="flaky",burn=10 
 
-*/
 
 describe("valida a página de QAs", () => {
   context.skip("Espera sem intercept", () => {

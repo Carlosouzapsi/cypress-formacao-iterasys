@@ -9,6 +9,10 @@ import loginPage from "../../pageObjects/LoginPage";
 // npx cypress run --env grepTags=regressionTests
 // npx cypress run --env grepTags=smoke
 // TESTE BURN: VERIFICAR SE UM TESTE N É FLAKY => ORA QUEBRA ORA PASSA.
+/* exemplo de burn: 
+npx cypress run --spec cypress\e2e\ui\conexaoQA_qas.cy.js --env grepTags=flaky (exemplo)
+npx cypress run --spec "cypress\e2e\ui\conexaoQA_qas.cy.js" --env grepTags="flaky",burn=10 
+*/
 describe("alertas", { tags: "regressionTests" }, () => {
   const login = new LoginPage();
   it("valida o alerta de senha inválida", { tags: "smoke" }, () => {
@@ -27,5 +31,4 @@ describe("alertas", { tags: "regressionTests" }, () => {
     // comando customizado não aceita options!
     cy.getElement("alert").should("not.exist");
   });
-
 });
