@@ -15,3 +15,7 @@ Cypress.Commands.add("apiLogin", (email, password) => {
     // no erase browser cookie
   });
 });
+
+Cypress.Commands.add("getElement", (seletor) => {
+  return cy.get(`[data-test="${seletor}"]`);
+});

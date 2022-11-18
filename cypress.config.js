@@ -15,7 +15,7 @@ module.exports = defineConfig({
         lerPasta(caminho) {
           return fs.readdirSync(caminho).length;
         },
-
+        // Precisa configurar essa variavel no path do sistema operacional
         lerEmail() {
           return process.env.email;
         },
@@ -24,5 +24,11 @@ module.exports = defineConfig({
     baseUrl: "https://conexaoqa.herokuapp.com/",
     viewPortHeight: 1080,
     viewPortWidth: 1920,
+    defaultCommandTimeout: 8000,
+    requestTimeout: 15000,
+    retries: {
+      runMode: 2,
+      openMode: 0,
+    },
   },
 });

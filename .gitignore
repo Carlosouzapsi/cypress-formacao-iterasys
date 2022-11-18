@@ -1,5 +1,4 @@
 /node_modules
 /cypress/videos
 /cypress/screenshots
-cypress.env.json
 package-lock.json
