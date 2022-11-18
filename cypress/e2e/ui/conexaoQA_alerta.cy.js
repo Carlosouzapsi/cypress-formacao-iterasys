@@ -11,11 +11,44 @@ import loginPage from "../../pageObjects/LoginPage";
 // TESTE BURN: VERIFICAR SE UM TESTE N É FLAKY => ORA QUEBRA ORA PASSA.
 /* exemplo de burn: 
 npx cypress run --spec cypress\e2e\ui\conexaoQA_qas.cy.js --env grepTags=flaky (exemplo)
-npx cypress run --spec "cypress\e2e\ui\conexaoQA_qas.cy.js" --env grepTags="flaky",burn=10 
+npx cypress run --spec "cypress\e2e\ui\conexaoQA_qas.cy.js" --env grepTags="flaky",burn=10
+pesquisar com o ctrl + f => Burn (repeat) tests (doc github do grep)
 */
 describe("alertas", { tags: "regressionTests" }, () => {
   const login = new LoginPage();
-  it("valida o alerta de senha inválida", { tags: "smoke" }, () => {
+  it.skip("valida o alerta de senha inválida", { tags: "smoke" }, () => {
+    // usar o clock para controlar o tempo da aplicação!
+    cy.clock();
+    login.visitar();
+    login.preencherEmail("emailinvalido@teste123.com");
+    login.preencherSenha("123456");
+    login.submeter();
+    //cy.get('[data-test="alert"]')
+    cy.getElement("alert")
+      .should("exist")
+      .and("have.text", "Credenciais inválidas");
+    // Quero que um elemento dure no máximo 10 segundos!
+    cy.tick(10000); // vinculado ao clock!
+    // comando customizado não aceita options!
+    cy.getElement("alert").should("not.exist");
+  });
+  it("Esse roda", { tags: "smoke" }, () => {
+    // usar o clock para controlar o tempo da aplicação!
+    cy.clock();
+    login.visitar();
+    login.preencherEmail("emailinvalido@teste123.com");
+    login.preencherSenha("123456");
+    login.submeter();
+    //cy.get('[data-test="alert"]')
+    cy.getElement("alert")
+      .should("exist")
+      .and("have.text", "Credenciais inválidas");
+    // Quero que um elemento dure no máximo 10 segundos!
+    cy.tick(10000); // vinculado ao clock!
+    // comando customizado não aceita options!
+    cy.getElement("alert").should("not.exist");
+  });
+  it("Esse não roda", () => {
     // usar o clock para controlar o tempo da aplicação!
     cy.clock();
     login.visitar();
