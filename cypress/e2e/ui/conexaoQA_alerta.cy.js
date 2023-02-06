@@ -1,5 +1,4 @@
 import LoginPage from "../../pageObjects/LoginPage";
-import loginPage from "../../pageObjects/LoginPage";
 
 // npx cypress run --env grepTags=smoke
 // verifica primeiro em todas as specs e busca as tags smoke.
